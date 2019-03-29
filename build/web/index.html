@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+      <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap-social.css">
+	<link rel="stylesheet" href="styles.css">
+    <title>Acoustic Guitar</title>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-dark bg-dark  navbar-expand-sm fixed-top">
+		
+		<div class="container">
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">
+		        <span class="navbar-toggler-icon"></span>
+		  </button>
+		 <a class="navbar-brand  mr-auto" href="index.html"><img src="img/guitar-logo.png" height="30" width="41"></a>
+			<div class="collapse navbar-collapse" id="Navbar">
+			<ul class="navbar-nav mr-auto">
+			  <li class="nav-item active"><a class="nav-link" href="#"><span class="fa fa-home fa-lg"></span>Home</a></li>
+			  <li class="nav-item"><a class="nav-link" href="aboutus.html"><span class="fa fa-info fa-lg"></span>About</a></li>
+			  <li class="nav-item"><a class="nav-link" href="#" onclick="forcheck()"><span class="fa fa-list fa-lg"></span>Guitar Tools</a></li>
+			  <li class="nav-item"><a class="nav-link" href="contact.html"><span class="fa fa-address-card fa-lg"></span>Contact</a></li>
+			
+			</ul>
+			 
+                         <form class="form-inline" action="">
+                            <input class="form-control mr-sm-2" type="text" placeholder="Search instruments">
+                            <button class="btn btn-outline-info" type="submit">Search</button>
+                        </form>
+                         <span class="navbar-text ml-3">
+                          <a id="loginButton" style="cursor: pointer;" role="button"><span class="fa fa-sign-in" data-target="#loginModal" data-toggle="modal" ></span> Login</a>
+                          </span>
+                              <span class="navbar-text ml-3">
+                          <a id="signupButton" style="cursor: pointer;" role="button"><span class="fa fa-user" data-target="#loginModal" data-toggle="modal" ></span> Signup</a>
+                          </span>
+
+			</div>
+		</div>
+    </nav>
+	   
+    
+      <div id="loginModal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Login </h4>
+                    <button style="color:white" type="button" class="close" data-dismiss="modal"><strong>&times;</strong></button>
+                </div>
+                <div class="modal-body">
+                    <form name="log" action="loginCode.jsp" onsubmit="return validate2()" method="post" role="form" data-toggle="validator" data-disable="false">
+                        <div class="form-row">
+                            <div class="form-group col-sm-8">
+                                    <label class="sr-only" for="exampleUsername">Username</label>
+                                    <input type="text" class="form-control form-control-sm mr-1" required="required" data-error="Please enter your username" id="uname" name="uname" placeholder="Enter username">
+                                    <div class="help-block with-errors"></div>
+                            </div>
+                          </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group col-sm-8">
+                                <label class="sr-only" for="examplePassword3">Password</label>
+                                <input type="password" class="form-control form-control-sm mr-1" id="pass" name="pass" placeholder="Password" required="required" data-error="Please enter your username">
+                              <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="col-sm-8">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox">
+                                    <label class="form-check-label"> Remember me</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <button type="button" class="btn btn-secondary btn-sm ml-auto" data-dismiss="modal">Cancel</button>
+                            <button id="login" type="submit" class="btn btn-primary btn-sm ml-1">Sign in</button> 
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+	   
+    
+    <div id="signupModal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Signup</h4>
+                    <button style="color:white" type="button" class="close" data-dismiss="modal"><strong>&times;</strong></button>
+                </div>
+                <div class="modal-body">
+                    <form name="sign" method="post" action="signupCode.jsp" role="form" data-toggle="validator" data-disable="false">
+                        <div class="form-row">
+                            <div class="form-group col-sm-8">
+                                    <label class="sr-only" for="exampleUsername">Username</label>
+                                    <input type="text" class="form-control form-control-sm mr-1" required="required" data-error="Please enter your username" id="uname" name="uname" placeholder="Enter username">
+                                    <div class="help-block with-errors"></div>
+                            </div>
+                          </div>
+                        <div id="reg" class="form-row">
+                            <div class="form-group col-sm-8">
+                                <label class="sr-only" for="exampleEmail">Email</label>
+                                <input type="email" class="form-control form-control-sm mr-1" id="email" name="email" placeholder="Enter email" required="required" data-error="Please enter Email">
+                                <div class="help-block with-errors"></div>
+                            </div>
+                         </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group col-sm-8">
+                                <label class="sr-only" for="examplePassword3">Password</label>
+                                <input type="password" class="form-control form-control-sm mr-1" id="pass" name="pass" placeholder="Password" required="required" data-error="Please enter your username">
+                              <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <button type="button" class="btn btn-secondary btn-sm ml-auto" data-dismiss="modal">Cancel</button>
+                            <button id="register" type="submit" class="btn btn-info btn-sm ml-1">Sign up</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <header class="jumbotron">
+        <div class="container">
+            <div class="row row-header">
+                <div class="col-12 col-sm">
+                    <h1>Acoustic Instruments</h1>
+                    <p>An acoustic guitar is a guitar that produces sound acoustically by transmitting the vibration of the strings to the air—as opposed to relying on electronic amplification (see electric guitar). The sound waves from the strings of an acoustic guitar resonate through the guitar's body, creating sound. This typically involves the use of a sound board and a sound box to strengthen the vibrations of the strings. In standard tuning the guitar's six strings are tuned (low to high) E2 A2 D3 G3 B3 E4. </p>
+                 </div>
+				
+                    <div class="col-7 col-sm-3 align-self-center">
+                    <img src="img/guitar-logo.png" class="img-fluid">
+                </div>
+				
+             </div>
+		</div>
+    </header>
+
+    <div class="container">
+	    
+		<div class="row row-content">
+           <div class="col">
+				<div id="mycarousel" class="carousel slide" data-ride="carousel">
+					 <div class="carousel-inner" role="listbox">
+
+                         <div class="carousel-item active">
+						    <img class="d-block img-fluid"
+                                src="img/f3.jpg" alt="f3">
+                            
+						 </div>
+						 
+						 <div class="carousel-item">
+						    <img class="d-block img-fluid" src="img/f1.jpg" alt="buffet">
+							 
+						 </div>
+						 
+						 <div class="carousel-item">
+						     <img class="d-block img-fluid" src="img/f4.jpg" alt="Sanjay Gautam">
+                             
+						     </div>
+						</div>
+                                    </div>
+					 
+					 <ol class="carousel-indicators">
+					     <li data-target="#mycarousel" data-slide-to="0" class="active"></li>
+                         <li data-target="#mycarousel" data-slide-to="1"></li>
+                         <li data-target="#mycarousel" data-slide-to="2"></li>
+					  </ol>
+					       <a class="carousel-control-prev" href="#mycarousel" role="button" data-slide="prev">
+                           <span class="carousel-control-prev-icon"></span>
+                          </a>
+						  
+                          <a class="carousel-control-next" href="#mycarousel" role="button" data-slide="next">
+                          <span class="carousel-control-next-icon"></span>
+                           </a>
+
+                </div>
+            </div>
+       </div>
+	
+	
+	
+
+        <div class="row row-content align-items-center">
+                <div class="row text-center ml-3">
+                        
+                        <div class="col-sm-4">
+                          <div class="thumbnail">
+                            <img src="img/f8.jpg" alt="Paris">
+                            <p><strong>Paris</strong></p>
+                          </div>
+                        </div>
+
+                        <div class="col-sm-4">
+                          <div class="thumbnail">
+                            <img src="img/f9.jpg" alt="New York">
+                            <p><strong>New York</strong></p>
+                            
+                
+                          </div>
+                        </div>
+                        <div class="col-sm-4">
+                          <div class="thumbnail">
+                            <img src="img/f10.jpg" alt="San Francisco">
+                            <p><strong>San Francisco</strong></p>
+                            
+                            
+                          </div>
+                        </div>
+                      </div> 
+            </div>
+
+        <div id="video" class="row row-content ">
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 text-light">
+                <div class="media">
+                    <img class="d-flex ml-3 img-thumbnail align-self-center" src="img/myimage.jpg" alt="Sanjay Gautam">
+                    <div class="media-body ml-3">
+                        <h2 class="mt-0 ">Sanjay Gautam</h2>
+                        <p class="d-none d-sm-block">SGSITS INDORE
+                            </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/7t4CBMDNosM?autoplay=1&mute=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>    
+            </div>
+        </div>
+ 
+  
+	
+    <footer class="footer">
+        <div class="container">
+            <div class="row">             
+                <div class=" offset-1 col-sm-2">
+                    <h5>Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="aboutus.html">About</a></li>
+                        <li><a href="#">Guitar Tools</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class=" col-sm-5">
+                    <h5>Our Address</h5>
+                    <address>
+		              23, SGSITS College<br>
+		              Yasvant Niwas Road,<br>
+		              INDORE<br>
+		              <i class="fa fa-phone fa-lg"></i>: +852 1234 5678<br>
+		              <i class="fa fa-fax fa-lg"></i>: +852 8765 4321<br>
+		              <i class="fa fa-envelope fa-lg"></i>: <a href="mailto:confusion@food.net">acousticguitar@instruments.net</a>
+		           </address>
+                </div>
+                <div class=" col-sm-4 align-self-center">
+                    <div class="text-center">
+                        <a class="btn btn-social-icon btn-google" href="http://google.com/+"><i class="fa fa-google-plus fa-lg"></i></a>
+                        <a class="btn btn-social-icon btn-facebook" href="http://www.facebook.com/profile.php?id="><i class="fa fa-facebook fa-lg"></i></a>
+                        <a class="btn btn-social-icon btn-linkedin" href="http://www.linkedin.com/in/"><i class="fa fa-linkedin fa-lg"></i></a>
+                        <a class="btn btn-social-icon btn-twitter" href="http://twitter.com/"><i class="fa fa-twitter fa-lg"></i></a>
+                        <a class="btn btn-social-icon btn-google" href="http://youtube.com/"><i class="fa fa-youtube fa-lg"></i></a>
+                        <a class="btn btn-social-icon" href="mailto:"><i class="fa fa-envelope-o fa-lg"></i></a>
+                    </div>
+                </div>
+           </div>
+           <div class="row justify-content-center">             
+                <div class="col-auto">
+                    <p>© Copyright 2019 Acoustic Guitar</p>
+                </div>
+           </div>
+        </div>
+    </footer>
+
+	    <!-- jQuery first, then Popper.js, then Bootstrap JS. -->
+    <script src="js/jquery.slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="validator.min.js"></script>
+	<script>
+    $(document).ready(function(){
+               
+                $('#loginButton').click(function() {
+                      $('#loginModal').modal('toggle');
+                 
+              
+               });
+               $('#signupButton').click(function() {
+                      $('#signupModal').modal('toggle');
+                    
+              
+               });
+
+             
+            });
+            window.onbeforeunload=function(){
+              Location.reload();  
+            };
+        </script>
+	
+        <script>
+            console.log("session is= "+session.getAttribute("userExistOrNot").toString());
+           document.getElementById("register").onsubmit=function(){
+               if(session.getAttribute("userExistOrNot").toString()===false)
+                window.alert("user are already Exist");
+               else
+                   window.alert("Registration Successfully!!");
+           }; 
+            
+         /*   function validate1()
+            {
+         var user=document.getElementById('uname');
+         var eid=document.getElementById('email');
+         var password=document.getElementById('pass');
+         if(user==="")
+         {
+            window.alert("Please Enter Username");
+            user.focus();
+             return false;   
+        }
+         if(eid==="")
+         {
+            window.alert("Please Enter Username");
+            eid.focus();
+             return false;   
+         }
+
+         if(password==="")
+         {
+            window.alert("Please Enter Username");
+            password.focus();
+             return false;   
+        }
+        return true;
+    }
+    function validate2()
+            {
+         var user=document.getElementById('uname');
+         var password=document.getElementById('pass');
+         if(user==="")
+         {
+            window.alert("Please Enter Username");
+            user.focus();
+             return false;   
+        }
+
+         if(password==="")
+         {
+            window.alert("Please Enter Username");
+            password.focus();
+             return false;   
+        }
+        return true;
+    }
+    function forcheck(){
+        
+        window.alert("Please Login First");
+    }*/
+        </script>
+</body>
+
+</html>
